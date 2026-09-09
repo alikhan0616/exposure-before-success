@@ -1,5 +1,7 @@
 # Exposure Before Success in Indirect Prompt Injection Measurement
 
+[![DOI](https://zenodo.org/badge/1362560404.svg)](https://doi.org/10.5281/zenodo.22674153)
+
 A measurement harness, a three-language attack corpus, and the complete evidence record for a
 study of how indirect prompt injection (IPI) is measured in LLM agents.
 
@@ -1024,17 +1026,19 @@ below.
 
 ## Citation
 
-If you use this harness, corpus or data, please cite the artifact. Machine-readable metadata is in
+If you use this harness, corpus or data, please cite the archived artifact. The DOI below is the
+concept DOI: it always resolves to the newest version. Machine-readable metadata is in
 [`CITATION.cff`](CITATION.cff).
 
 ```bibtex
 @software{khan_exposure_before_success_2026,
-  author  = {Khan, Muhammad Ali and Fatima, Alisha and Asif, Talha},
-  title   = {Exposure Before Success: A Multilingual Indirect Prompt Injection
-             Measurement Harness},
-  year    = {2026},
-  version = {1.0.0},
-  note    = {Software and data artifact}
+  author    = {Khan, Muhammad Ali and Fatima, Alisha and Asif, Talha},
+  title     = {Exposure Before Success: A Multilingual Indirect Prompt Injection
+               Measurement Harness},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.22674153},
+  url       = {https://doi.org/10.5281/zenodo.22674153}
 }
 ```
 

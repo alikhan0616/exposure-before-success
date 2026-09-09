@@ -9,7 +9,7 @@ abstract: >-
   instruction-following control, 4,671 per-trial records across eleven candidate models, the
   aggregate tables derived from them, and the analysis code that regenerates every table.
 type: software
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-09-09
 authors:
   - family-names: Khan
@@ -20,6 +20,7 @@ authors:
     given-names: Talha
 license: Apache-2.0
 repository-code: "https://github.com/alikhan0616/exposure-before-success"
+doi: "10.5281/zenodo.22674153"
 keywords:
   - indirect prompt injection
   - LLM agents
