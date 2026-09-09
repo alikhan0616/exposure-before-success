@@ -18,9 +18,7 @@ authors:
     given-names: Alisha
   - family-names: Asif
     given-names: Talha
-license:
-  - Apache-2.0
-  - CC-BY-4.0
+license: Apache-2.0
 repository-code: "https://github.com/alikhan0616/exposure-before-success"
 keywords:
   - indirect prompt injection
