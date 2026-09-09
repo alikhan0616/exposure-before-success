@@ -1032,7 +1032,7 @@ concept DOI: it always resolves to the newest version. Machine-readable metadata
 
 ```bibtex
 @software{khan_exposure_before_success_2026,
-  author    = {Khan, Muhammad Ali and Fatima, Alisha and Asif, Talha},
+  author    = { Muhammad Ali Khan , Alisha Fatima and Talha Asif, },
   title     = {Exposure Before Success: A Multilingual Indirect Prompt Injection
                Measurement Harness},
   year      = {2026},
