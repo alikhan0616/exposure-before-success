@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "If you use this harness, corpus or data, please cite the artifact below."
+title: "Exposure Before Success: A Multilingual Indirect Prompt Injection Measurement Harness"
+abstract: >-
+  A measurement harness, a three-language attack corpus (English, Urdu and Roman Urdu) and the
+  complete trial record for a study of how indirect prompt injection is measured in LLM agents.
+  The artifact contains three simulated agent environments with mutable state and programmatic
+  checkers, 126 corpus rows forming 42 paired language instances, a read-frame arm and a benign
+  instruction-following control, 4,671 per-trial records across eleven candidate models, the
+  aggregate tables derived from them, and the analysis code that regenerates every table.
+type: software
+version: 1.0.0
+date-released: 2026-09-09
+authors:
+  - family-names: Khan
+    given-names: Muhammad Ali
+  - family-names: Fatima
+    given-names: Alisha
+  - family-names: Asif
+    given-names: Talha
+license:
+  - Apache-2.0
+  - CC-BY-4.0
+repository-code: "https://github.com/alikhan0616/exposure-before-success"
+keywords:
+  - indirect prompt injection
+  - LLM agents
+  - benchmark validity
+  - measurement
+  - evaluation methodology
+  - AI safety
+  - multilingual
+  - Urdu
+  - Roman Urdu

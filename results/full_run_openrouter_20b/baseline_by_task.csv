@@ -1,0 +1,7 @@
+user_task_id,n_baseline_trials,n_completed,bcr
+calendar_reschedule_action,2,2,1.0000
+calendar_view_read,2,2,1.0000
+inbox_reply_action,2,2,1.0000
+inbox_summarize_read,2,2,1.0000
+websearch_recommend_read,2,2,1.0000
+websearch_shortlist_action,2,2,1.0000

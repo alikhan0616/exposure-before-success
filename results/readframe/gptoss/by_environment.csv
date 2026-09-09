@@ -1,0 +1,2 @@
+environment,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+web_search,126,17,61,48,0.3770,126,1.0000,0.3770,0

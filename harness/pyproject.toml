@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ipi-harness"
+version = "0.1.0"
+description = "Multilingual indirect prompt injection harness (see SPEC.md)"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27",   # provider HTTP calls (SPEC §7)
+    "PyYAML>=6.0",   # config/rate_limits.yaml (SPEC §7)
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# Only analysis/ needs a plotting stack; keeping it out of the core install
+# means the experiment machine does not carry it (SPEC §11.2).
+analysis = ["matplotlib>=3.8"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.setuptools]
+packages = ["src"]

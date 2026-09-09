@@ -1,0 +1,4 @@
+environment,language,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+web_search,en,42,21,20,1,0.7381,42,1.0000,0.7381,0
+web_search,ru,42,2,37,3,0.4881,42,1.0000,0.4881,0
+web_search,ur,42,6,33,3,0.5357,42,1.0000,0.5357,0

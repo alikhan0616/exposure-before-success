@@ -1,0 +1,2 @@
+model,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+google/gemma-4-31b-it,126,1,125,0,0.5040,126,1.0000,0.5040,0

@@ -1,0 +1,2 @@
+model,n_baseline_trials,n_completed,bcr,n_error
+mistralai/mistral-small-3.2-24b-instruct,6,5,0.8333,0

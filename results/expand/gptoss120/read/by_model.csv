@@ -1,0 +1,2 @@
+model,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+openai/gpt-oss-120b,42,9,19,14,0.4405,42,1.0000,0.4405,0

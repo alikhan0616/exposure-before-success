@@ -1,0 +1,2 @@
+model,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+qwen/qwen-2.5-7b-instruct,378,131,40,207,0.3995,126,0.3333,0.1944,0

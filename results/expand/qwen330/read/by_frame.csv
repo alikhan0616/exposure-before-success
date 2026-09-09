@@ -1,0 +1,2 @@
+user_task_frame,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+read,42,0,35,7,0.4167,42,1.0000,0.4167,0

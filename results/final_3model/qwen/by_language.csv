@@ -1,0 +1,4 @@
+language,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+en,126,42,15,69,0.3929,42,0.3333,0.1786,0
+ru,126,44,16,66,0.4127,42,0.3333,0.2381,0
+ur,126,45,9,72,0.3929,42,0.3333,0.1667,0

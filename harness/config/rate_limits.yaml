@@ -1,0 +1,74 @@
+# Per-provider rate limits and retry policy (SPEC §7, §13).
+# Edited without touching code. `verified: true` means the numbers were checked
+# against that provider's current limits (date in `notes`); anything still
+# `null` is the SPEC's suggested starting value and must be checked before the
+# first real run against that provider.
+
+providers:
+  gemini:
+    rpm: 8                     # requests per minute the client will allow itself
+    verified: null             # rpm NOT yet checked against Google's docs
+    notes: >-
+      rpm is still SPEC §7's suggested value -- verify before a full Gemini run.
+      Model id checked live 2026-08-28: both ids §7 names are closed to new keys
+      (404 "no longer available to new users"); gemini-3.5-flash-lite is the
+      default and answers with tool calls.
+  groq:
+    rpm: 30                    # requests per minute -- enforced by the rolling-window limiter
+    tpm: 8000                  # tokens per minute   -- ENFORCED by the token limiter (see below)
+    rpd: 1000                  # requests per day    -- recorded, not enforced
+    tpd: 200000                # tokens per day      -- recorded, not enforced
+    verified: true             # checked 2026-08-28; tpm/rpm re-confirmed live via response headers 2026-08-30
+    notes: >-
+      Limits verified 2026-08-28; the tpm figure re-confirmed 2026-08-30 from the
+      live x-ratelimit-limit-tokens header (8000/min). tpm is the binding
+      free-tier constraint, not rpm: a trial is several calls each carrying the
+      full tool schemas and a growing message list (~1-2.5k tokens each), so 30
+      requests/min is ~45-75k tokens/min -- ~10x over the 8000/min cap. The token
+      limiter below counts tokens in a rolling 60s window and sleeps to stay
+      under `tpm`, which is what actually keeps a run on the free tier. tpd
+      200000 is a rolling daily bucket; staying under tpm keeps daily burn
+      gradual enough that `--resume-from` can spread a large matrix across days.
+      Any residual overrun still surfaces as HTTP 429 and is absorbed by the
+      retry policy, then written as an `error` row if the attempts run out.
+  openrouter:
+    rpm: 30
+    verified: null
+    notes: "SPEC §7 suggested value; applies to free-tier-eligible models."
+  cerebras:
+    rpm: 5                     # requests per minute -- ENFORCED, and the binding constraint here
+    tpm: 30000                 # input tokens per minute -- ENFORCED by the token limiter
+    rph: null                  # UNPUBLISHED hourly request cap -- see notes
+    rpd: null                  # not published for the free trial tier
+    tpd: 1000000               # tokens per day -- recorded, not enforced
+    verified: true             # limits as published for the Free Trial tier, taken 2026-08-31
+    notes: >-
+      Free Trial tier: 5 req/min, 30k input tokens/min, 1M tokens/day. The
+      inverse of Groq's shape -- the daily budget is 5x Groq's, so a diagnostic
+      set finishes in one sitting, but 5 rpm is tight: a trial is 2-5 requests,
+      so expect ~1 trial/min. rpm is what binds, not tpm (5 requests of ~2.5k
+      tokens is ~12k/min, well under 30k). The published tpm counts *input*
+      tokens only; our estimator also reserves the output budget, so the token
+      limiter is conservative by design here.
+      Observed 2026-08-31 and NOT in the published table: an hourly request cap
+      ("Requests per hour limit exceeded", code request_quota_exceeded) fires
+      well before the daily budget. The retry policy absorbed it (60s backoff,
+      recovered on attempt 2), so it costs wall-clock rather than trials, but a
+      long unattended run should expect pauses that rpm alone does not predict.
+
+# Shared retry policy. Applies to HTTP 429 and to network/5xx errors alike:
+# after `max_attempts` failed attempts the trial is written as an `error` row and
+# the run continues (SPEC §13, §15 -- never retry forever).
+retry:
+  max_attempts: 5
+  initial_backoff_seconds: 2
+  backoff_multiplier: 2
+  max_backoff_seconds: 60
+
+# Rolling-window accounting used by the client-side limiters (requests and tokens).
+rate_limiter:
+  window_seconds: 60
+  # The token limiter reserves this fraction of `tpm` as its working budget, so
+  # bursts and our own pre-request token estimate stay comfortably under the
+  # provider's hard cap rather than skimming it. 0.85 of 8000 = ~6800/min.
+  token_safety_fraction: 0.85

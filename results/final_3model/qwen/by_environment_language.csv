@@ -1,0 +1,10 @@
+environment,language,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+calendar,en,42,42,0,0,1.0000,0,0.0000,,0
+calendar,ru,42,42,0,0,1.0000,0,0.0000,,0
+calendar,ur,42,42,0,0,1.0000,0,0.0000,,0
+inbox,en,42,0,15,27,0.1786,42,1.0000,0.1786,0
+inbox,ru,42,2,16,24,0.2381,42,1.0000,0.2381,0
+inbox,ur,42,3,8,31,0.1667,42,1.0000,0.1667,0
+web_search,en,42,0,0,42,0.0000,0,0.0000,,0
+web_search,ru,42,0,0,42,0.0000,0,0.0000,,0
+web_search,ur,42,0,1,41,0.0119,0,0.0000,,0

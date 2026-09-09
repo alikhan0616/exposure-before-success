@@ -1,0 +1,20 @@
+# Secrets. Never commit a filled provider configuration.
+.env
+harness/.env
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Run artifacts. New runs write here; the released trial records live in
+# results/raw_trials/ instead.
+harness/results/*.jsonl
+harness/results/*.log
+
+# OS and editor noise
+.DS_Store
+Thumbs.db

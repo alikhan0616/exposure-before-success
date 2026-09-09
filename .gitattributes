@@ -1,0 +1,22 @@
+# Every text file in this repository is stored and checked out with LF endings,
+# on every platform. This is not cosmetic.
+#
+# `injected_text` in the corpus carries real newlines as *data* -- the
+# fake-completion break, the workflow_framing header rule -- and Git cannot tell
+# a data newline from a line ending. Measured on the frozen corpus, a CRLF
+# checkout alters 54 of 126 payloads, injecting invisible carriage returns into
+# text the model receives. Pinning to LF keeps the corpus, the fixtures and the
+# trial records byte-identical on every machine, which is what makes them usable
+# as a reproducibility artifact.
+
+* text=auto eol=lf
+
+corpus/*.csv                 text eol=lf
+corpus/subsets/*.csv         text eol=lf
+harness/fixtures/*.json      text eol=lf
+results/raw_trials/*.jsonl   text eol=lf
+results/**/*.csv             text eol=lf
+
+# Binary assets: never touched by line-ending conversion.
+*.png    binary
+*.docx   binary

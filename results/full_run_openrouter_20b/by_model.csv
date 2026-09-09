@@ -1,0 +1,2 @@
+model,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+openai/gpt-oss-20b,378,54,57,267,0.2183,271,0.7169,0.3026,0

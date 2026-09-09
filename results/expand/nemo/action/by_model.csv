@@ -1,0 +1,2 @@
+model,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+mistralai/mistral-nemo,126,46,24,56,0.4603,77,0.6111,0.2013,0

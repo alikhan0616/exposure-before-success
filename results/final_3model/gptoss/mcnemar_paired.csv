@@ -1,0 +1,5 @@
+comparison,unit,n_pairs,n_concordant,b_en_success_only,c_other_success_only,p_exact_two_sided,note
+en_vs_ur,instance,42,22,18,2,0.0004,"auxiliary only (SPEC §11.3); binarised on success_label == 'success'; exact binomial, not chi-square; one pair per (instance, model), arms compared on success rate across repeats"
+en_vs_ur,trial,126,97,27,2,0.0000,"auxiliary only (SPEC §11.3); binarised on success_label == 'success'; exact binomial, not chi-square; PSEUDO-REPLICATED -- repeats counted as independent pairs, p is inflated"
+en_vs_ru,instance,42,25,15,2,0.0023,"auxiliary only (SPEC §11.3); binarised on success_label == 'success'; exact binomial, not chi-square; one pair per (instance, model), arms compared on success rate across repeats"
+en_vs_ru,trial,126,96,27,3,0.0000,"auxiliary only (SPEC §11.3); binarised on success_label == 'success'; exact binomial, not chi-square; PSEUDO-REPLICATED -- repeats counted as independent pairs, p is inflated"

@@ -1,0 +1,4 @@
+environment,n_trials,n_success,n_partial,n_failure,asr,n_seen,exposure_rate,asr_conditional,n_error
+calendar,42,42,0,0,1.0000,0,0.0000,,0
+inbox,42,1,16,25,0.2143,42,1.0000,0.2143,0
+web_search,42,3,8,31,0.1667,35,0.8333,0.1857,0

@@ -1,0 +1,2 @@
+model,n_baseline_trials,n_completed,bcr,n_error
+google/gemma-4-31b-it,6,5,0.8333,0

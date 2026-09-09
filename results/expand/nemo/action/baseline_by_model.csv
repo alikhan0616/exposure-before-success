@@ -1,0 +1,2 @@
+model,n_baseline_trials,n_completed,bcr,n_error
+mistralai/mistral-nemo,6,4,0.6667,0
